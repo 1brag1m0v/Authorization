@@ -1,0 +1,107 @@
+[
+  {
+    "number": 1,
+    "name": "еда",
+    "quantity": 10,
+    "price": 25.99,
+    "image": "https://i0.wp.com/grabli.ru/wp-content/uploads/2023/04/dsc07456-scaled.jpg?fit=2048%2C1536&ssl=1"
+  },
+  {
+    "number": 2,
+    "name": "вода",
+    "quantity": 15,
+    "price": 49.99,
+    "image": "https://static.wikia.nocookie.net/dota2_gamepedia/images/0/0d/Launch_banner_-_Morphling.jpg/revision/latest?cb=20110801131219"
+  },
+  {
+    "number": 3,
+    "name": "кофе",
+    "quantity": 8,
+    "price": 34.50,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/274px-A_small_cup_of_coffee.JPG"
+  },
+  {
+    "number": 4,
+    "name": "милки",
+    "quantity": 20,
+    "price": 19.95,
+    "image": "https://шоколад.онлайн/image/cache/import_files/dc/dc1f5eff-586b-4308-a571-1ed3e4d38d07_eea2d16e-7c15-4b71-a427-fc8e421653b0-600x600.png"
+  },
+  {
+    "number": 5,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://img1.russianfood.com/dycontent/images_upl/261/big_260886.jpg"
+  },
+  {
+    "number": 6,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://klopotenko.com/wp-content/uploads/2020/06/Hachapyri-po-adzharski_siteWebNEW.jpg?v=1612196743"
+  },
+  {
+    "number": 7,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://i0.wp.com/grabli.ru/wp-content/uploads/2023/04/dsc07456-scaled.jpg?fit=2048%2C1536&ssl=1"
+  },
+  {
+    "number": 8,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://klopotenko.com/wp-content/uploads/2021/07/khachapuri-po-megrelsku_siteweb-1000x600.jpg?v=1626780883"
+  },
+  {
+    "number": 9,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://e0.edimdoma.ru/data/recipes/0004/5735/45735-ed4_wide.jpg?1468527066"
+  },
+  {
+    "number": 10,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://lavashura.ru/upload/iblock/697/btmc7mw32yrsxy2ho1udya37z0mksqra.jpg"
+  },
+  {
+    "number": 11,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://madamevorger.com/wp-content/uploads/2020/11/khachapuri1-2-e1663772144799.jpg"
+  },
+  {
+    "number": 12,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://i0.wp.com/grabli.ru/wp-content/uploads/2023/04/dsc07456-scaled.jpg?fit=2048%2C1536&ssl=1"
+  },
+  {
+    "number": 13,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://gotovim-doma.ru/images/recipe/f/95/f956f68d694a9c3dd726eaac9caaa037_l.jpg"
+  },
+  {
+    "number": 14,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://i0.wp.com/grabli.ru/wp-content/uploads/2023/04/dsc07456-scaled.jpg?fit=2048%2C1536&ssl=1"
+  },
+  {
+    "number": 15,
+    "name": "хачапури",
+    "quantity": 12,
+    "price": 10.00,
+    "image": "https://hip2go.ru/vsevolozhsk/api2/images/IikoProducts1195/d52e5b58b7-1_1000x.jpg"
+  }
+]
