@@ -2,37 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical">
 
     <EditText
+        android:layout_marginTop="210dp"
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/editTextNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Number" />
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:hint="Номер" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Number" />
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:hint="Наименование" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:id="@+id/editTextQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Number" />
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:hint="Количество" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:id="@+id/editTextPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item Number" />
-
-    <EditText
-        android:id="@+id/editTextNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Item Number" />
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:hint="Цена" />
 
 
 
@@ -43,14 +62,13 @@
     <!-- Other EditText fields for item details (Name, Quantity, Price, Image, etc.) -->
 
     <Button
+        android:layout_marginVertical="10dp"
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Item" />
-
-    <Button
-        android:id="@+id/buttonAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Item" />
+        android:layout_gravity="center"
+        android:onClick="addItem"
+        android:backgroundTint="#DFDFDF"
+        android:textColor="@color/black"
+        android:text="Добавить" />
 </LinearLayout>

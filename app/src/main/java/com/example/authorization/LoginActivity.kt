@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedInputStream
+import java.io.File
 import java.io.IOException
 import java.io.InputStream
 import java.net.URL
@@ -54,7 +55,8 @@ class LoginActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)
-            startActivityForResult(intent, ADD_ITEM_REQUEST_CODE)
+            startActivity(intent)
+            finish()
         }
 
         // Add text change listener for search
@@ -113,8 +115,22 @@ class LoginActivity : AppCompatActivity() {
 
     private fun loadItemsFromJson() {
         try {
-            val json = loadJSONFromAsset("items.json")
-            val jsonArray = JSONArray(json)
+            val file = File(filesDir, "items.json")
+            // Чтение содержимого файла JSON с пользователями или создание пустого JSON, если файл не существует
+            val jsonString = if (file.exists()) {
+                file.bufferedReader().use {
+                    it.readText()
+                }
+            } else {
+                "{\"items\":[]}"
+            }
+
+            // Создание объекта JSON из строки
+            val jsonObject = JSONObject(jsonString)
+            // Переменная для отслеживания успешности аутентификации
+            var isAuth = false
+            // Массив пользователей из JSON-объекта
+            val jsonArray = jsonObject.getJSONArray("items")
 
             for (i in 0 until jsonArray.length()) {
 
