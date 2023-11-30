@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
                 // Установка флага успешной аутентификации в true
                 isAuth = true
                 // Создание намерения для перехода к другой активности (LoginActivity)
-                val newPage = Intent(this, LoginActivity::class.java)
+                val newPage = Intent(this, LoginActivity::class.java).putExtra("login", login)
                 // Запуск активности по созданному намерению
                 startActivity(newPage)
                 // Прерывание цикла, так как аутентификация успешна

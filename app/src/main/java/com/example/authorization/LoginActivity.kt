@@ -1,5 +1,6 @@
 package com.example.authorization
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -10,12 +11,15 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.iterator
 import com.bumptech.glide.Glide
 import org.json.JSONArray
 import org.json.JSONObject
@@ -33,15 +37,77 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
     private lateinit var sortRadioGroup: RadioGroup
     private lateinit var addButton: Button
+    private lateinit var backButton: Button
     private lateinit var editButton: Button
+    private lateinit var profileButton: Button
     private lateinit var deleteButton: Button
-    private lateinit var itemsAdapWter: ArrayAdapter<String>
+    private var loginFromPage: String? = null
+    private lateinit var itemsAdapter: ArrayAdapter<String>
 
     private var itemsList = mutableListOf<Item>()
+
+
+    private fun deleteItem (updatedList: List<Item>) {
+        for (item in itemsListView) {
+            if (item.findViewById<CheckBox>(R.id.checkBox).isChecked) {
+                val selectedItem = item.findViewById<TextView>(R.id.itemNumberTextView).text
+                itemsListView.removeView(item)
+                try {
+                    val file = File(filesDir, "items.json")
+                    val jsonString = if (file.exists()) {
+                        file.bufferedReader().use {
+                            it.readText()
+                        }
+                    } else {
+                        "{\"items\":[]}"
+                    }
+
+                    val jsonObject = JSONObject(jsonString)
+
+                    val jsonArray = jsonObject.getJSONArray("items")
+
+                    for (i in 0 until jsonArray.length()) {
+
+                        val jsonObject: JSONObject = jsonArray.getJSONObject(i)
+                        val numberItem = jsonObject.getString("number")
+                        val selectNumberItem = "Номер: $numberItem"
+                        if (selectNumberItem == selectedItem) {
+                            jsonArray.remove(i)
+                            break
+                        }
+                    }
+                    jsonObject.put("items", jsonArray)
+                    val fileOutputStream = openFileOutput("items.json", Context.MODE_PRIVATE)
+                    fileOutputStream.write(jsonObject.toString().toByteArray())
+                    fileOutputStream.close()
+                    Toast.makeText(this, "$selectedItem успешно удален", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Toast.makeText(this, "Ошибка при удалении", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun editItem() {
+        for (item in itemsListView) {
+            if (item.findViewById<CheckBox>(R.id.checkBox).isChecked) {
+                val numberItem = item.findViewById<TextView>(R.id.itemNumberTextView).text
+                val nameItem = item.findViewById<TextView>(R.id.itemNameTextView).text
+                val quantityItem = item.findViewById<TextView>(R.id.itemQuantityTextView).text
+                val priceItem = item.findViewById<TextView>(R.id.itemPriceTextView).text
+                val intent = Intent(this, edit_item::class.java).putExtra("numberItem", numberItem).putExtra("nameItem", nameItem).putExtra("quantityItem", quantityItem).putExtra("priceItem", priceItem)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        loginFromPage = intent.getStringExtra("login")
 
         itemsListView = findViewById(R.id.itemsListView)
         searchEditText = findViewById(R.id.searchEditText)
@@ -49,9 +115,32 @@ class LoginActivity : AppCompatActivity() {
 
         addButton = findViewById(R.id.addbtn)
         editButton = findViewById(R.id.editbtn)
-        deleteButton = findViewById(R.id.deletebtn)
+        profileButton = findViewById(R.id.profileBtn)
+        backButton = findViewById(R.id.backBtn)
+        deleteButton = findViewById(R.id.deleteBtn)
         // Load items from JSON
         loadItemsFromJson()
+
+        editButton.setOnClickListener {
+            editItem()
+        }
+
+        deleteButton.setOnClickListener {
+            deleteItem(itemsList)
+        }
+
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        profileButton.setOnClickListener {
+            val intent = Intent(this, profile::class.java).putExtra("login", loginFromPage)
+            startActivity(intent)
+            finish()
+        }
 
         addButton.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)

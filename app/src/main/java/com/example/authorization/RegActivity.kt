@@ -89,6 +89,8 @@ class RegActivity : AppCompatActivity() {
             put("login", login)
             put("pass", pass)
             put("fio", fio)
+            put("age", "20")
+            put("image", "https://fikiwiki.com/uploads/posts/2022-02/1644991795_6-fikiwiki-com-p-prikolnie-kartinki-pro-kotov-6.jpg")
         }
 
         // Добавление нового пользователя в массив пользователей
